@@ -1,4 +1,3 @@
-// BookDetailPage.jsx
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -16,9 +15,14 @@ function BookDetailPage() {
   if (!book) return <div>Loading...</div>;
 
   return (
-    <div>
+    <div className="book-detail">
       <h1>{book.title}</h1>
-      <img src={book.coverImage} alt={book.title} />
+      <div className="image-container">
+        <img
+          src={book.image || 'https://via.placeholder.com/200'} // Fallback image
+          alt={book.title}
+        />
+      </div>
       <p>{book.description}</p>
     </div>
   );
